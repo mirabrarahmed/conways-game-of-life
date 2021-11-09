@@ -1,12 +1,14 @@
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
   background(220);
 
-  noStroke();
-  fill(100,200,300,30);
-  rect(100,300, 50,100);
+  grid_world = new Grid(20, 15);
 
 }
+
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }

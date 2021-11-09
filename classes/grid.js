@@ -1,6 +1,12 @@
 /** @class Grid class representing the whole grid. */
-class grid {
+class Grid {
 
+  /**
+   * Creates a new Grid World
+   * @constructor 
+   * @param {number} rows - amount of rows in the grid
+   * @param {number} cols - amount of columns in the grid
+   */
   constructor(rows = 10, cols = 15) {
 
     this.rows = rows;

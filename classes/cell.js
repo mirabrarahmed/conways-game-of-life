@@ -1,5 +1,5 @@
 /** @class Cell class representing a cell. */
-class cell {
+class Cell {
 
     /** 
      * Cell takes 3 arguments x , y, size

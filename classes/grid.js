@@ -35,20 +35,16 @@ class Grid {
 
   }
 
-  drawGrid() {
+  drawGrid(mx=null,my=null,reset=false) {
     for (let row of this.grid) {
       for (let cell of row) {
-        cell.drawCell();
-      }
-    }
-  }
-
-  checkCellColor(mx, my) {
-    for (let row of this.grid) {
-      for (let cell of row) {
-        if (cell.mouseHover(mx, my)) {
+        if (mx && my && cell.mouseHover(mx, my)) {
           cell.changeColor();
         }
+        if (reset){
+          cell.color = 255;
+        }
+        cell.drawCell();
       }
     }
   }

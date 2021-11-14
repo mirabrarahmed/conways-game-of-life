@@ -10,13 +10,16 @@ class Cell {
      */
     static size = 25;
 
-    constructor(x, y) {
+    constructor(x, y, row_pos, col_pos) {
         this.x = x;
         this.y = y;
+        this.row_pos = row_pos;
+        this.col_pos = col_pos;
         this.end_x = x + Cell.size;
         this.end_y = y + Cell.size;
 
         this.color = 255;
+        this.alive_neighbors = 0;
     }
 
     drawCell() {

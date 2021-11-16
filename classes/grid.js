@@ -1,8 +1,3 @@
-function sleep(ms) {
-  print("DAFAQ DUDE");
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 /** @class Grid class representing the whole grid. */
 class Grid {
 
@@ -42,7 +37,7 @@ class Grid {
 
   }
   
-  async drawGrid(mx=null,my=null,reset=false,start=false) {
+  drawGrid(mx=null,my=null,reset=false,start=false) {
 
     if (start){
       this.life = true;

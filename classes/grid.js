@@ -15,7 +15,7 @@ class Grid {
     this.life = false;
 
     fill(255);
-    strokeWeight(2);
+    //strokeWeight(2);
 
     this.x = 10, this.y = 10;
     this.end_x = 0, this.end_y = 0;
@@ -46,7 +46,14 @@ class Grid {
       this.life = false;
     }
 
+    if(this.life){
+      this.calcAllNeighbors();
+    }
+
+
     let grid = this.grid;
+    let all_cell_dead = true;
+
     for (let row of grid) {
       for (let cell of row) {
 
@@ -57,20 +64,12 @@ class Grid {
 
         //IF LIFE
         if (this.life){
-          //IF CELL ALIVE WITH BLACK COLOR (0)
-          if (cell.color == 0){
-            if (cell.alive_neighbors != 2 && cell.alive_neighbors != 3){
-              cell.color=255;
-            }
-          }
-          //ELSE DEAD with color 255
-          else{
-            if (cell.alive_neighbors == 3){
-              // if exactly 3 neighbors alive
-              // then this cell is born
-              cell.color = 0;
-            }
-          }
+          cell.applyRulesOfLife();
+        }
+
+        //Checking whether a single cell is alive
+        if(cell.color==0){
+          all_cell_dead=false;
         }
 
         if (reset){
@@ -80,6 +79,15 @@ class Grid {
       }
     }
     
+    //If game is on but all cell is dead
+    if(this.life && all_cell_dead){
+      return -1;
+    }
+
+  }
+
+  calcAllNeighbors(){
+    let grid = this.grid;
     for (let row of grid){
       for (let cell of row){
         cell.alive_neighbors = 0;
@@ -131,7 +139,6 @@ class Grid {
         }
       }
     }
-
   }
 
 }
